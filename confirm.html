@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto p-6">
+        <div class="flex flex-col lg:flex-row justify-between">
+            <!-- Left Side: Order Confirmation -->
+            <div id="left-container" class="bg-white p-6 rounded-lg shadow-lg w-full lg:w-2/3">
+                <!-- Confirmation ID and Thank You Section -->
+                <div class="text-center mb-8">
+                    <h6 id="confirmation_id" class="text-lg text-gray-800 text-left">Confirmation id: ######</h6>
+                    <div class="flex items-center justify-left mt-4">
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.qVsJA4ZbNytjgOQ9IzctDQHaHa&pid=Api&P=0&h=180" alt="Tick" class="w-12 h-12 mr-2">
+                        <h2 class="text-3xl font-semibold text-green-600 text-left">Thank you!</h2>
+                    </div>
+                    <p class="mt-2 text-lg text-gray-700 text-left">Your order is confirmed.</p>
+                    <p class="mt-2 text-sm text-gray-600 text-left">You will receive a confirmation email with your order number shortly.</p>
+                </div><hr class="border-gray-300 mb-2">
+
+                <!-- Email Subscription Checkbox -->
+                <div class="mb-8">
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600">
+                        <span class="ml-2 text-gray-700">Email me with news and offers</span>
+                    </label>
+                </div>
+
+                <!-- Order Details --><hr class="border-gray-300 mb-2">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Order Details</h3>
+                <div class="lg:flex justify-between">
+                    <!-- Left Column: Contact Info, Shipping Address, Shipping Method -->
+                    <div>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-gray-700">Contact Information</h4>
+                            <p id="contact_info" class="text-gray-600">Loading...</p>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-gray-700">Shipping Address</h4>
+                            <p id="shipping_address" class="text-gray-600">Loading...</p>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-gray-700">Shipping Method</h4>
+                            <p id="shipping_method" class="text-gray-600">Loading...</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Payment Method, Billing Address -->
+                    <div>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-gray-700">Payment Method</h4>
+                            <p id="payment_method" class="text-gray-600">Credit Card (**** **** **** 1234)</p>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-gray-700">Billing Address</h4>
+                            <p id="billing_address" class="text-gray-600">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Continue Shopping Button -->
+                <div class="mt-8 text-right">
+                    <button class="bg-green-500 text-white py-3 rounded-md text-lg font-bold hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 text-white px-6 py-4 rounded-lg ">Continue Shopping</button>
+                    <div class="text-gray-700 text-left">
+                        Need help? <a href="/contact" class="text-green-600 hover:underline">Contact us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Order Summary -->
+            <div id="right-container" class="lg:w-1/3 bg-gray-50 p-6 rounded-lg shadow-lg mt-6 lg:mt-0">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Order Summary</h3><hr class="border-gray-300 mb-2">
+                <div id="order-summary" class="text-gray-700">
+                    <!-- Order summary will be loaded here -->
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between">
+                        <p class="text-gray-600">Subtotal:</p>
+                        <p id="subtotal" class="font-semibold">$0.00</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <p class="text-gray-600">Shipping:</p>
+                        <p id="shipping_cost" class="font-semibold">$0.00</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <p class="text-gray-600">Tax:</p>
+                        <p id="tax" class="font-semibold">$0.00</p>
+                    </div>
+                    <div class="flex justify-between text-xl font-semibold mt-4">
+                        <p>Total:</p>
+                        <p id="total">$0.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="confirm.js"></script>
+</body>
+
+</html>
