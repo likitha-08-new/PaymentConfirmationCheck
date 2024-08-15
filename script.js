@@ -169,35 +169,42 @@ document.getElementById("card").addEventListener("change", () => {
         disclaimer.classList.add("hidden");
     }
 });
+document.getElementById('payment-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting in the traditional way
+});
 
 // Validate and Save Card Details
-document.getElementById("payment-form").addEventListener("submit", (event) => {
-    event.preventDefault();
+document.getElementById('pay_button').addEventListener('click', function() {
+    // Get card details
     const cardNumber = document.getElementById("card_number").value.replace(/\s+/g, '');
     const expiryDate = document.getElementById("expiry_date").value;
     const cvv = document.getElementById("cvv").value;
-    
+
+    // Validate card details before proceeding
     if (!validateCardNumber(cardNumber)) {
         alert("Invalid card number. It should be exactly 16 digits.");
         return;
     }
-    
+
     if (!validateExpiryDate(expiryDate)) {
         alert("Invalid expiry date. It should not be a past date.");
         return;
     }
-    
+
     if (!validateCVV(cvv)) {
         alert("Invalid CVV. It should be exactly 3 numeric digits.");
         return;
     }
-    
-    if (document.getElementById("save_card").checked) {
-        saveCardDetails(cardNumber, expiryDate, cvv);
-    }
 
-    // Proceed with payment or order placement logic here
+    // Proceed to the next page if all validations pass
+    window.location.href = 'confirm.html';
 });
+
+document.getElementById('place_order_button').addEventListener('click', function() {
+    // Always redirect to the next page without any validation
+    window.location.href = 'confirm.html';
+});
+
 
 // Validate Card Number
 function validateCardNumber(cardNumber) {
@@ -241,16 +248,6 @@ window.addEventListener('load', () => {
     if (cvv) {
         document.getElementById("cvv").value = cvv;
     }
-});
-// Corrected Event Listeners for Buttons
-document.getElementById('pay_button').addEventListener('click', function() {
-    // Redirect to the order confirmation page
-    window.location.href = 'confirm.html';
-});
-
-document.getElementById('place_order_button').addEventListener('click', function() {
-    // Redirect to the order confirmation page
-    window.location.href = 'confirm.html';
 });
 
 });
