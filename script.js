@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Set grand total on pay button
     document.getElementById("grand_total_button").textContent = data.cart.grand_total.toFixed(2);
 
-    // Show/Hide Place Order button based on Payment Method
+    // Show/Hide Place Order button and Disclaimer based on Payment Method
     const codRadio = document.getElementById("cod");
     const cardRadio = document.getElementById("card");
     const cardDetails = document.getElementById("card-details");
@@ -158,13 +158,13 @@ document.addEventListener('DOMContentLoaded', function () {
         cardDetails.style.display = "none";
         payButton.style.display = "none";
         placeOrderButton.classList.remove("hidden");
-        disclaimer.classList.remove("hidden");
+        disclaimer.style.display = "block"; // Ensure disclaimer is displayed
     } else if (savedPaymentMethod === 'card') {
         cardRadio.checked = true;
         cardDetails.style.display = "block";
         payButton.style.display = "block";
         placeOrderButton.classList.add("hidden");
-        disclaimer.classList.add("hidden");
+        disclaimer.style.display = "block"; // Ensure disclaimer is displayed
     }
 
     codRadio.addEventListener("change", () => {
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
             cardDetails.style.display = "none";
             payButton.style.display = "none";
             placeOrderButton.classList.remove("hidden");
-            disclaimer.classList.remove("hidden");
+            disclaimer.style.display = "block"; // Show disclaimer
             sessionStorage.setItem('paymentMethod', 'cod');
         }
     });
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
             cardDetails.style.display = "block";
             payButton.style.display = "block";
             placeOrderButton.classList.add("hidden");
-            disclaimer.classList.add("hidden");
+            disclaimer.style.display = "block"; // Show disclaimer
             sessionStorage.setItem('paymentMethod', 'card');
         }
     });
